@@ -22,12 +22,18 @@ function fileHandler($file)
         $codigoRemessaRetorno_hdrArquivo = substr($fileRows[0], 142, 1);
         $versaoLayoutArquivo_hdrArquivo = substr($fileRows[0], 163, 3);
 
+        $hdrArquivo = hdrArquivo(
+            $banco_hdrArquivo, $loteServico_hdrArquivo, $tipoRegistro_hdrArquivo, $tipoInscricao_hdrArquivo, $numeroInscricaoEmpresa, $nomeEmpresa_hdrArquivo, $codigoRemessaRetorno_hdrArquivo, $versaoLayoutArquivo_hdrArquivo
+        );
+
         // TRL ARQUIVO
         $banco_trlArquivo = substr($fileRows[6], 0, 3);
         $loteServico_trlArquivo = substr($fileRows[6], 3, 4);
         $tipoRegistro_trlArquivo = substr($fileRows[6], 7, 1);
         $quantidadeLotesArquivo_trlArquivo = substr($fileRows[6], 17, 6);
         $quantidadeRegistrosArquivo_trlArquivo = substr($fileRows[6], 23, 6);
+
+        $trlArquivo = trlArquivo($banco_trlArquivo, $loteServico_trlArquivo, $tipoRegistro_trlArquivo, $quantidadeLotesArquivo_trlArquivo, $quantidadeRegistrosArquivo_trlArquivo);
 
         // HDR LOTE
         $banco_hdrLote = substr($fileRows[1], 0, 3);
@@ -39,6 +45,8 @@ function fileHandler($file)
         $tipoInscricao_hdrLote = substr($fileRows[1], 31, 1);
         $numeroInscricaoEmpresa_hdrLote = substr($fileRows[1], 32, 14);
 
+        $hdrLote = hdrLote($banco_hdrLote, $tipoRegistro_hdrLote, $modalidadeAverbacao_hdrLote, $tipoServico_hdrLote, $versaoLayoutLote_hdrLote, $loteServico_hdrLote, $tipoInscricao_hdrLote, $numeroInscricaoEmpresa_hdrLote);
+
         // TRL LOTE
         $banco_trlLote = substr($fileRows[5], 0, 3);
         $loteServico_trlLote = substr($fileRows[5], 3, 4);
@@ -46,6 +54,8 @@ function fileHandler($file)
         $quantidadeRegistrosLote_trlLote = substr($fileRows[5], 15, 6);
         $totalParcelasEnviadas_trlLote = substr($fileRows[5], 21, 5);
         $totalValoresParcelas_trlLote = substr($fileRows[5], 26, 13);
+
+        $trlLote = trlLote($banco_trlLote, $loteServico_trlLote, $tipoRegistro_trlLote, $quantidadeRegistrosLote_trlLote, $totalParcelasEnviadas_trlLote, $totalValoresParcelas_trlLote);
 
         // REGISTRO DETALHE
         $banco_registroDetalhe = substr($fileRows[3], 0, 3);
@@ -70,6 +80,14 @@ function fileHandler($file)
         $agenciaMantenedoraConta_registroDetalhe = substr($fileRows[3], 202, 5);
         $numeroContaCorrente_registroDetalhe = substr($fileRows[3], 208, 12);
         $digitoVerificadorConta_registroDetalhe = substr($fileRows[3], 220, 1);
+
+        $registroDetalhe = registroDetalhe(
+            $banco_registroDetalhe, $loteServico_registroDetalhe, $tipoRegistro_registroDetalhe, $numeroSequencialRegistro_registroDetalhe, $codigoSegmento_registroDetalhe,
+            $tipoMovimento_registroDetalhe, $nomeMutuario_registroDetalhe, $codigoUnidade_registroDetalhe, $cpfMutuario_registroDetalhe, $idMutuario_registroDetalhe,
+            $tipoOperacaoCredito_registroDetalhe, $dataVencimentoParcela_registroDetalhe, $quantidadeParcelasContrato_registroDetalhe, $dataInicioContrato_registroDetalhe,
+            $dataFimContrato_registroDetalhe, $valorTotalLiberado_registroDetalhe, $valorTotalOperacao_registroDetalhe, $valorParcela_registroDetalhe, $idContrato_registroDetalhe,
+            $agenciaMantenedoraConta_registroDetalhe, $numeroContaCorrente_registroDetalhe, $digitoVerificadorConta_registroDetalhe
+        );
 
         // echo readfile($file['tmp_name']);
 

@@ -25,12 +25,12 @@ function fileHandler($file)
     );
 
     // TRL ARQUIVO
-    $banco_trlArquivo = substr($fileRows[6], 0, 3);
-    $loteServico_trlArquivo = substr($fileRows[6], 3, 4);
-    $tipoRegistro_trlArquivo = substr($fileRows[6], 7, 1);
-    $quantidadeLotesArquivo_trlArquivo = substr($fileRows[6], 17, 6);
-    $quantidadeRegistrosArquivo_trlArquivo = substr($fileRows[6], 23, 6);
-
+    $banco_trlArquivo = substr(end($fileRows), 0, 3);
+    $loteServico_trlArquivo = substr(end($fileRows), 3, 4);
+    $tipoRegistro_trlArquivo = substr(end($fileRows), 7, 1);
+    $quantidadeLotesArquivo_trlArquivo = substr(end($fileRows), 17, 6);
+    $quantidadeRegistrosArquivo_trlArquivo = substr(end($fileRows), 23, 6);
+    
     $trlArquivo = trlArquivo($banco_trlArquivo, $loteServico_trlArquivo, $tipoRegistro_trlArquivo, $quantidadeLotesArquivo_trlArquivo, $quantidadeRegistrosArquivo_trlArquivo);
 
     // HDR LOTE

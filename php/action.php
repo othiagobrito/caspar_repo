@@ -2,8 +2,8 @@
 
 function fileHandler($file)
 {
-    include('fileRows.php');
-    include('arrayGenerator.php');
+    require_once('fileRows.php');
+    require_once('arrayGenerator.php');
 
     $tempFile = fopen($file['tmp_name'], 'r');
     $fileRows = getRows($tempFile);
@@ -87,8 +87,10 @@ function fileHandler($file)
         $agenciaMantenedoraConta_registroDetalhe, $numeroContaCorrente_registroDetalhe, $digitoVerificadorConta_registroDetalhe
     );
 
+    $array = array('CNAB240' => $hdrArquivo, $trlArquivo, $hdrLote, $trlLote, $registroDetalhe);
+
     $salvarComo = "../files/{$file['name']}";
-    move_uploaded_file($file['tmp_name'], $salvarComo);
+    $salvo = move_uploaded_file($file['tmp_name'], $salvarComo);
 }
 
 $files = [$_FILES['input1'], $_FILES['input2']];

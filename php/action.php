@@ -87,10 +87,14 @@ function fileHandler($file)
         $agenciaMantenedoraConta_registroDetalhe, $numeroContaCorrente_registroDetalhe, $digitoVerificadorConta_registroDetalhe
     );
 
-    $array = array('CNAB240' => $hdrArquivo, $trlArquivo, $hdrLote, $trlLote, $registroDetalhe);
+    $array = [$hdrArquivo, $trlArquivo, $hdrLote, $trlLote, $registroDetalhe];
 
     $salvarComo = "../files/{$file['name']}";
     $salvo = move_uploaded_file($file['tmp_name'], $salvarComo);
+
+    require_once('mysql.php');
+
+    saveToTable($file['name'], $array);
 }
 
 $files = [$_FILES['input1'], $_FILES['input2']];
@@ -101,5 +105,5 @@ foreach ($files as $file) {
     }
 }
 
-// header('Location: ../');
-// die();
+header('Location: ../');
+die();

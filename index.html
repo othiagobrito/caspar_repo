@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquivos CNAB 240</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="send-card" class="form-group">
+        <form action="php/action.php" method="POST" enctype="multipart/form-data">
+            <h1 class="title">Arquivos CNAB 240</h1>
+            
+            <label class="label" for="input1">Escolher Arquivo 1</label>
+            <input id="input1" name="input1" class="form-control-file file-input" type="file" accept=".txt">
+
+            <label class="label" for="input2">Escolher Arquivo 2</label>
+            <input id="input2" name="input2" class="form-control-file file-input" type="file" accept=".txt">
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

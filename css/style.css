@@ -1,0 +1,59 @@
+body {
+    background-color: #f1f1f1;
+}
+
+#send-card {
+    max-width: 500px;
+    height: 300px;
+    margin: auto;
+    margin-top: 35vh;
+    padding: 10px;
+    background-color: #474747;
+    border-radius: 25px;
+
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 0px 0px 10px #696969;
+}
+
+form *{
+    padding-bottom: 25px;
+}
+
+form {
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+form title {
+    font-size: 35px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.label {
+    padding: 20px 10px;
+    width: 200px;
+
+    background-color: #333;
+    color: #FFF;
+    
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+
+    margin-top: 10px;
+    margin-left: 25px;
+
+    cursor: pointer;
+    
+
+    float: left;
+}
+
+.btn {
+    margin-top: 35px;
+}

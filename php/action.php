@@ -1,10 +1,10 @@
 <?php
 
-include('fileRows.php');
-include('arrayGenerator.php');
-
 function fileHandler($file)
 {
+    include('fileRows.php');
+    include('arrayGenerator.php');
+
     $tempFile = fopen($file['tmp_name'], 'r');
     $fileRows = getRows($tempFile);
 
